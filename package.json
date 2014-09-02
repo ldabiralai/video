@@ -21,6 +21,6 @@
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
-    "supertest": "*"
+    "superagent": "*"
   }
 }
