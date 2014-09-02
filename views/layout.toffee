@@ -1,0 +1,14 @@
+<html>
+<head>
+  <title>Videos</title>
+  <link href="/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <header>
+    <h1>Videos</h1>
+  </header>
+  <section id="main">
+    #{raw body}
+  </section>
+</body>
+</html>
