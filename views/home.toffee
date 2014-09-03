@@ -1,4 +1,4 @@
 {#
   for video in videos
-    {: #{video.title} :}
+    {: #{video.title} - #{video.duration} minutes :}
 #}
