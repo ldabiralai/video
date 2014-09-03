@@ -27,8 +27,8 @@ describe "Home", ->
         done()
 
     it "a video", (done) ->
-      videos.insert({title: 'Gravity', length: 9000000})
-      superagent.get("#{appBaseUrl}")
-      .end (e, response) ->
-        response.text.should.include "Gravity"
-        done()
+      videos.insert {title: 'Gravity', length: 9000000}, ->
+        superagent.get("#{appBaseUrl}")
+        .end (e, response) ->
+          response.text.should.include "Gravity"
+          done()
