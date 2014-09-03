@@ -1,4 +1,6 @@
+<ul id="video-list">
 {#
   for video in videos
-    {: #{video.title} - #{video.duration} minutes :}
+    {: <li>#{video.title} - #{video.duration} minutes</li> :}
 #}
+</ul>
