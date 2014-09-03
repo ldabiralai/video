@@ -27,3 +27,12 @@ header h1 {
   padding: 10px 0;
   margin: 10px auto 0;
 }
+
+#video-list {
+  list-style: none;
+  padding: 0;
+}
+
+#video-list li {
+  margin: 5px 0;
+}
