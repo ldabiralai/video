@@ -1,4 +1,3 @@
-chai = require("chai").should()
 zombie = require("zombie")
 assert = require("assert")
 async = require("async")
