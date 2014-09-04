@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "chai": "*",
-    "superagent": "*"
+    "zombie": "*"
   }
 }

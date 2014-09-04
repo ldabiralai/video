@@ -1,6 +1,14 @@
 <ul id="video-list">
 {#
   for video in videos
-    {: <li>#{video.title} - #{video.duration} minutes</li> :}
+    data = video.title.toLowerCase()
+    {:
+      <li data-title="#{data}">
+        #{video.title}
+        {# if video.duration {:
+           - #{video.duration} minutes
+        :} #}
+      </li>
+    :}
 #}
 </ul>

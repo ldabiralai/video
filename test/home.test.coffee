@@ -1,15 +1,9 @@
-chai = require("chai")
-chai.should()
-superagent = require("superagent")
-async = require("async")
-mongo = require("mongojs")
+base = require("./helpers/base")
 
-db = mongo('db')
-videos = db.collection('videos')
-
-require('../app')
-
-appBaseUrl = "http://localhost:5000/"
+browser = base.zombie.create()
+assert = base.assert
+videos = base.videos
+async = base.async
 
 describe "Home", ->
 
@@ -17,25 +11,21 @@ describe "Home", ->
     videos.drop()
     done()
 
-
   it "should return a 200", (done) ->
-    superagent.get("#{appBaseUrl}")
-    .end (e, response) ->
-      response.status.should.equal 200
+    browser.visit "/", (err) ->
+      browser.assert.status 200
       done()
 
   describe "should see", ->
     it "the page title", (done) ->
-      superagent.get("#{appBaseUrl}")
-      .end (e, response) ->
-        response.text.should.include "Videos"
+      browser.visit "/", (err) ->
+        browser.assert.text("h1", "Videos")
         done()
 
     it "a video", (done) ->
-      videos.insert {title: 'Gravity', duration: 9000000}, ->
-        superagent.get("#{appBaseUrl}")
-        .end (e, response) ->
-          response.text.should.include "Gravity"
+      videos.insert {title: 'Gravity'}, ->
+        browser.visit "/", (err) ->
+          browser.assert.text("li", "Gravity")
           done()
 
     it "multiple videos and their length", (done) ->
@@ -44,8 +34,7 @@ describe "Home", ->
         videos.insert film, ->
           callback()
       , ->
-        superagent.get("#{appBaseUrl}")
-        .end (e, response) ->
-          response.text.should.include "Gravity - 150 minutes"
-          response.text.should.include "Oblivion - 10 minutes"
+        browser.visit "/", (err) ->
+          browser.assert.text("li[data-title=gravity]", "Gravity - 150 minutes")
+          browser.assert.text("li[data-title=oblivion]", "Oblivion - 10 minutes")
           done()
