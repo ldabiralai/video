@@ -5,7 +5,7 @@ async = require("async")
 mongo = require("mongojs")
 
 db = mongo('db')
-videos = db.collection('videos');
+videos = db.collection('videos')
 
 require('../app')
 
