@@ -2,7 +2,7 @@ async = require('async')
 
 module.exports = (app) ->
 
-  home = require('../helpers/home.coffee')()
+  home = require('../helpers/home.coffee')
 
   routes = {}
 
