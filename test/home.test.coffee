@@ -1,4 +1,5 @@
 base = require("./helpers/base")
+contains = require("./helpers/contains")
 
 browser = base.zombie.create()
 assert = base.assert
@@ -35,6 +36,6 @@ describe "Home", ->
           callback()
       , ->
         browser.visit "/", (err) ->
-          browser.assert.text("li[data-title=gravity]", "Gravity - 150 minutes")
-          browser.assert.text("li[data-title=oblivion]", "Oblivion - 10 minutes")
+          contains.text(browser, "Gravity - 150 minutes")
+          contains.text(browser, "Oblivion - 10 minutes")
           done()
