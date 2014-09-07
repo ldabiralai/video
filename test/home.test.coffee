@@ -39,3 +39,10 @@ describe "Home", ->
           contains.text(browser, "Gravity - 150 minutes")
           contains.text(browser, "Oblivion - 10 minutes")
           done()
+
+    it "a video which links to itself", (done) ->
+      videos.insert {title: 'Gravity', duration: 9000000, watch_id: 1}, ->
+        browser.visit "/", (err) ->
+          browser.clickLink "Gravity", ->
+            contains.text(browser, "Gravity")
+            done()

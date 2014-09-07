@@ -4,7 +4,7 @@
     data = video.title.toLowerCase()
     {:
       <li data-title="#{data}">
-        #{video.title}
+        <a href="/watch/#{video.watch_id}">#{video.title}</a>
         {# if video.duration {:
            - #{video.duration} minutes
         :} #}
