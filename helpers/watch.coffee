@@ -5,11 +5,8 @@ videos = db.collection('videos')
 watch = {
 
   getDetails: (watch_id, callback) ->
-    videos.findOne
-      watch_id: watch_id
-    , (err, docs) ->
-      console.log docs
-      callback(null, docs)
+    videos.findOne {watch_id: parseInt(watch_id)}, (err, doc) ->
+      callback(null, doc)
 
 }
 
